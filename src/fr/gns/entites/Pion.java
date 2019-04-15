@@ -4,23 +4,23 @@ public class Pion {
     
     private int numero ;
     
-    private CouleurJoueur couleur ;
+    private Couleur couleur ;
     private Case position ;
 
     public Pion() {
         super() ;
     }
 
-    public Pion(int numero, CouleurJoueur couleur) {
+    public Pion(int numero, Couleur couleur) {
         this.numero = numero;
         this.couleur = couleur;
     }
 
-    public Pion(int numero , CouleurJoueur couleur , Case position ) {
+    public Pion(int numero , Couleur couleur , Case position ) {
         this.numero = numero ;
         this.couleur = couleur ;
         this.position = position ;
-        this.position.setPion( this ) ;
+        //this.position.setPion( this ) ;
     }
 
     public int getNumero() {
@@ -31,11 +31,11 @@ public class Pion {
         this.numero = numero;
     }
 
-    public CouleurJoueur getCouleur() {
+    public Couleur getCouleur() {
         return couleur;
     }
 
-    public void setCouleur(CouleurJoueur couleur) {
+    public void setCouleur(Couleur couleur) {
         this.couleur = couleur;
     }
 
@@ -49,10 +49,9 @@ public class Pion {
     
     public void poser( Case position ){
         this.position = position ;
-        this.position.setPion( this ) ;
+        //this.position.setPion( this ) ;
     }
     
-
     @Override
     public String toString() {
         return "Pion{" + "numero=" + numero + ", couleur=" + couleur + ", position=" + position + '}';

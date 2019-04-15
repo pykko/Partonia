@@ -1,6 +1,6 @@
 package fr.gns.entites;
 
-public enum CouleurJoueur {
+public enum Couleur {
     
     JAUNE ,
     NOIR ;

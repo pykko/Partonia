@@ -40,13 +40,15 @@ public class Case {
         this.pion = pion;
     }
     
+    @Deprecated
     public void poserPion( Pion pion ){
-        
+        /*
         if( pion.getPosition() != null ){
             pion.getPosition().setPion( null );
         }
+        */
         this.pion = pion ;
-        this.pion.setPosition( this ) ;
+        //this.pion.setPosition( this ) ;
     }
     
     public boolean estOccupee(){
@@ -63,6 +65,20 @@ public class Case {
         return false ;
     }
 
+    @Override
+    @Deprecated
+    public boolean equals(Object obj) {
+        
+        final Case other = (Case) obj;
+        if (this.ligne != other.ligne) {
+            return false;
+        }
+        if (this.colonne != other.colonne) {
+            return false;
+        }
+        return true;
+    }
+    
     @Override
     public String toString() {
         return "Case{" + "ligne=" + ligne + ", colonne=" + colonne + '}';

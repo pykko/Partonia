@@ -1,5 +1,7 @@
 package fr.gns.entites;
 
+import java.util.List;
+
 public class Plateau {
     
     public static int NB_LIGNES = 10 ;
@@ -10,6 +12,10 @@ public class Plateau {
     public Plateau() {
         super() ;
         initialiser() ;
+    }
+
+    public Case[][] getCases() {
+        return cases;
     }
     
     private void initialiser(){
