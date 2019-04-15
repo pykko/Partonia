@@ -1,43 +1,47 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package fr.gns;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
-/**
- *
- * @author etudiant
- */
 public class Partonia extends Application {
     
     @Override
     public void start(Stage primaryStage) {
-        Button btn = new Button();
-        btn.setText("Partonia");
-        btn.setOnAction(new EventHandler<ActionEvent>() {
-            
-            @Override
-            public void handle(ActionEvent event) {
-                System.out.println("Partonia");
-            }
-        });
+       
+        MenuBar barreMenus = new MenuBar() ;
         
-        StackPane root = new StackPane();
-        root.getChildren().add(btn);
+        Menu menuFichier = new Menu( "Fichier" ) ;
+        MenuItem itemQuitter = new MenuItem( "Quitter" ) ;
+        itemQuitter.setOnAction(
+                (event) -> {
+                    Platform.exit() ;
+                }
+        );
+        menuFichier.getItems().add( itemQuitter ) ;
         
-        Scene scene = new Scene(root, 300, 250);
+        Menu menuPartie = new Menu( "Partie" ) ;
+        MenuItem itemNouvelle = new MenuItem( "Nouvelle partie" ) ;
+        menuPartie.getItems().add( itemNouvelle ) ;
         
-        primaryStage.setTitle("Partonia");
-        primaryStage.setScene(scene);
+        barreMenus.getMenus().addAll( menuFichier , menuPartie ) ;
+        
+        BorderPane root = new BorderPane();
+        root.setTop( barreMenus );
+        
+        Scene scene = new Scene( root , 300 , 250 );
+        
+        primaryStage.setTitle( "Partonia" );
+        primaryStage.setScene( scene );
         primaryStage.show();
     }
 
