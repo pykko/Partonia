@@ -27,6 +27,17 @@ public class Plateau {
         }
     }
     
+    
+    public void placerPion( Pion unPion , int ligne , int colonne ){
+        int i = ligne - 1 ;
+        int j = colonne - 1 ;
+        
+        Case uneCase = this.cases[ i ][ j ] ;
+        uneCase.setPion( unPion ) ;
+        unPion.setPosition( uneCase ) ;
+    }
+    
+    
     public Case getVoisine( Case uneCase , Direction direction ){
         
         int i = uneCase.getLigne() - 1 ;

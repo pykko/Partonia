@@ -1,5 +1,8 @@
 package fr.gns;
 
+import fr.gns.entites.Couleur;
+import fr.gns.entites.Partie;
+import fr.gns.entites.Pion;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -49,7 +52,19 @@ public class Partonia extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        launch(args);
+        //launch(args);
+        
+        Partie p = new Partie( 1 ) ;
+        p.initialiser() ;
+        
+        for( Pion unPion : p.getPions( Couleur.JAUNE ) ){
+            System.out.println( unPion ) ;
+        }
+        
+        for( Pion unPion : p.getPions( Couleur.NOIR ) ){
+            System.out.println( unPion ) ;
+        }
+        
     }
     
 }
