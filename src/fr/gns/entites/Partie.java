@@ -66,6 +66,13 @@ public class Partie {
     public List<Pion> getPions( Couleur couleur ) {
         return pions.get( couleur ) ;
     }
+    
+    
+    public void deplacerPion(  ){
+        
+    }
+    
+    
 
     @Override
     public String toString() {

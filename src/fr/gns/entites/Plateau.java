@@ -18,6 +18,13 @@ public class Plateau {
         return cases;
     }
     
+    public Case getCase( int ligne , int colonne ){
+        int i = ligne - 1 ;
+        int j = colonne - 1 ;
+        
+        return this.cases[ i ][ j ] ;
+    }
+    
     private void initialiser(){
         
         for( int i = 0 ; i < NB_LIGNES ; i++ ){
@@ -28,15 +35,45 @@ public class Plateau {
     }
     
     
-    public void placerPion( Pion unPion , int ligne , int colonne ){
+    public void placerPion( Pion pion , int ligne , int colonne ){
         int i = ligne - 1 ;
         int j = colonne - 1 ;
         
-        Case uneCase = this.cases[ i ][ j ] ;
-        uneCase.setPion( unPion ) ;
-        unPion.setPosition( uneCase ) ;
+        Case caseCible = this.cases[ i ][ j ] ;
+        caseCible.setPion( pion ) ;
+        pion.setPosition( caseCible ) ;
     }
     
+    public void placerPion( Pion pion , Case caseCible ){
+        caseCible.setPion( pion ) ;
+        pion.setPosition( caseCible ) ;
+    }
+    
+    public boolean deplacerPion( Pion pion , int ligne , int colonne ){
+        int i = ligne - 1 ;
+        int j = colonne - 1 ;
+        
+        Case caseCible = this.cases[ i ][ j ] ;
+        
+        if( caseCible.estLibre() ){
+            pion.getPosition().setPion( null ) ;
+            caseCible.setPion( pion ) ;
+            pion.setPosition( caseCible ) ;
+        }
+        
+        return false ;
+    }
+    
+    public boolean deplacerPion( Pion pion , Case caseCible ){
+        
+        if( caseCible.estLibre() ){
+            pion.getPosition().setPion( null ) ;
+            caseCible.setPion( pion ) ;
+            pion.setPosition( caseCible ) ;
+        }
+        
+        return false ;
+    }    
     
     public Case getVoisine( Case uneCase , Direction direction ){
         
@@ -59,6 +96,4 @@ public class Plateau {
         return null ; 
     }
     
-    
-
 }

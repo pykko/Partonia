@@ -52,7 +52,6 @@ public class Partonia extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        //launch(args);
         
         Partie p = new Partie( 1 ) ;
         p.initialiser() ;
@@ -64,6 +63,8 @@ public class Partonia extends Application {
         for( Pion unPion : p.getPions( Couleur.NOIR ) ){
             System.out.println( unPion ) ;
         }
+        
+        launch(args);
         
     }
     
